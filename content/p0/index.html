@@ -1,0 +1,1115 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="jhonfvg">
+      
+      
+        <link rel="canonical" href="https://jfinfosena.github.io/25adso-nodejs/content/p0/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../p1/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
+    
+    
+      
+        <title>Plan de Mejoramiento ( Programación con Node.js y APIs REST): Creación de una API REST para un Sistema de Asistencia de Estudiantes - Plan de Mejoramiento</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#plan-de-mejoramiento-programacion-con-nodejs-y-apis-rest-creacion-de-una-api-rest-para-un-sistema-de-asistencia-de-estudiantes" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Plan de Mejoramiento" class="md-header__button md-logo" aria-label="Plan de Mejoramiento" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Plan de Mejoramiento
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Plan de Mejoramiento ( Programación con Node.js y APIs REST): Creación de una API REST para un Sistema de Asistencia de Estudiantes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+    
+  
+  Plan de Mejoramiento
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../rubrica-p0/" class="md-tabs__link">
+          
+  
+    
+  
+  Rubrica
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../entrega/" class="md-tabs__link">
+          
+  
+    
+  
+  Fechas
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Plan de Mejoramiento" class="md-nav__button md-logo" aria-label="Plan de Mejoramiento" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg>
+
+    </a>
+    Plan de Mejoramiento
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Plan de Mejoramiento
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Plan de Mejoramiento
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Plan de Mejoramiento ( Programación con Node.js y APIs REST): Creación de una API REST para un Sistema de Asistencia de Estudiantes
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Plan de Mejoramiento ( Programación con Node.js y APIs REST): Creación de una API REST para un Sistema de Asistencia de Estudiantes
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-de-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad de Proyecto:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#competencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competencia:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resultado de aprendizaje:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resultado de aprendizaje:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-descripcion-general-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Descripción General del Sistema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tecnologias-y-requisitos-previos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Tecnologías y Requisitos Previos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-diseno-de-la-base-de-datos-esquema-prisma" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Diseño de la Base de Datos (Esquema Prisma)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-estructura-del-proyecto-en-nestjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Estructura del Proyecto en NestJS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-pasos-detallados-para-construir-la-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Pasos Detallados para Construir la API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-condiciones-para-la-evaluacion-del-plan-de-mejoramiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Condiciones para la Evaluación del Plan de Mejoramiento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plan de Mejoramiento (Programación con JavaScript): Página Web con Funcionalidades Básicas para API REST
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Rubrica
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Rubrica
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rubrica-p0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rúbricas de Evaluación - Plan de Mejoramiento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rubrica-p1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rúbricas de Evaluación - Plan de Mejoramiento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fechas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Fechas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entrega/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cronograma de Entrega - Planes de Mejoramiento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-de-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad de Proyecto:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#competencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competencia:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resultado de aprendizaje:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resultado de aprendizaje:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-descripcion-general-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Descripción General del Sistema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tecnologias-y-requisitos-previos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Tecnologías y Requisitos Previos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-diseno-de-la-base-de-datos-esquema-prisma" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Diseño de la Base de Datos (Esquema Prisma)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-estructura-del-proyecto-en-nestjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Estructura del Proyecto en NestJS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-pasos-detallados-para-construir-la-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Pasos Detallados para Construir la API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-condiciones-para-la-evaluacion-del-plan-de-mejoramiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Condiciones para la Evaluación del Plan de Mejoramiento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="plan-de-mejoramiento-programacion-con-nodejs-y-apis-rest-creacion-de-una-api-rest-para-un-sistema-de-asistencia-de-estudiantes">Plan de Mejoramiento ( Programación con Node.js y APIs REST): Creación de una API REST para un Sistema de Asistencia de Estudiantes</h1>
+<h2 id="actividad-de-proyecto">Actividad de Proyecto:</h2>
+<ul>
+<li>Programación con Node.js y APIs REST</li>
+</ul>
+<h2 id="competencia">Competencia:</h2>
+<ul>
+<li>Estructurar propuesta técnica de servicio de tecnología de la información según requisitos técnicos y normativa
+220501094</li>
+</ul>
+<h2 id="resultado-de-aprendizaje">Resultado de aprendizaje:</h2>
+<ul>
+<li>Validar las condiciones de la propuesta técnica del software de acuerdo con los intereses de las partes.</li>
+</ul>
+<p>Este plan de mejoramiento detalla la implementación de una API RESTful para un sistema de asistencia de estudiantes, utilizando <strong>NestJS</strong> como framework backend, <strong>Prisma</strong> como ORM para manejar la base de datos, y <strong>MySQL</strong> como motor de base de datos. El sistema permitirá gestionar la asistencia de estudiantes en un entorno educativo (por ejemplo, una escuela o universidad), registrando información sobre estudiantes, cursos, profesores y registros de asistencia. </p>
+<h4 id="1-descripcion-general-del-sistema">1. Descripción General del Sistema</h4>
+<p>El sistema de asistencia de estudiantes permitirá:</p>
+<ul>
+<li>Gestionar <strong>estudiantes</strong>: registrar, consultar, actualizar y eliminar información de estudiantes.</li>
+<li>Gestionar <strong>cursos</strong>: organizar asignaturas o clases en las que los estudiantes están inscritos.</li>
+<li>Gestionar <strong>profesores</strong>: registrar información de los docentes que imparten los cursos.</li>
+<li>Registrar <strong>asistencias</strong>: marcar la asistencia o ausencia de estudiantes en sesiones específicas de un curso, con fecha y estado.</li>
+<li>Consultar reportes básicos, como asistencias por estudiante, curso o fecha.</li>
+</ul>
+<p>La API será RESTful, utilizando verbos HTTP estándar (GET, POST, PUT, DELETE), respuestas en formato JSON y códigos de estado HTTP apropiados (200 OK, 201 Created, 404 Not Found, 400 Bad Request). </p>
+<h4 id="2-tecnologias-y-requisitos-previos">2. Tecnologías y Requisitos Previos</h4>
+<ul>
+<li><strong>NestJS</strong>: Framework para estructurar la aplicación en módulos, controladores, servicios e inyección de dependencias. Usar la versión más reciente compatible (alrededor de v10 o superior en 2025).</li>
+<li><strong>Prisma</strong>: ORM para definir el esquema de la base de datos, generar migraciones y realizar consultas type-safe.</li>
+<li><strong>MySQL</strong>: Base de datos relacional. Usar una instancia local o en la nube (e.g., Docker o PlanetScale).</li>
+<li><strong>Otras dependencias</strong>:</li>
+<li>@nestjs/common, @nestjs/core para el core de NestJS.</li>
+<li>@prisma/client para el cliente Prisma.</li>
+<li>class-validator y class-transformer para validación de datos en los DTOs.</li>
+</ul>
+<p><strong>Requisitos previos</strong>:</p>
+<ul>
+<li>Instalar <strong>Node.js</strong> (versión LTS, e.g., v20 o superior) y un gestor de paquetes (npm, yarn o pnpm).</li>
+<li>Instalar la CLI de <strong>NestJS</strong> globalmente.</li>
+<li>Configurar una base de datos MySQL local y una instancia remota. Crear una base de datos vacía llamada "attendance_db".</li>
+<li>Instalar la CLI de <strong>Prisma</strong> globalmente.</li>
+<li>Usar un editor de código como VS Code con extensiones para NestJS y Prisma.</li>
+</ul>
+<h4 id="3-diseno-de-la-base-de-datos-esquema-prisma">3. Diseño de la Base de Datos (Esquema Prisma)</h4>
+<p>Definir el esquema en un archivo <code>schema.prisma</code> en la raíz del proyecto. Este esquema modelará las entidades y relaciones necesarias.</p>
+<ul>
+<li>
+<p><strong>Modelo Student</strong>:</p>
+<ul>
+<li>Campos: id (int, auto-incremental, primary key), firstName (string, requerido), lastName (string, requerido), email (string, opcional, único, formato email), enrollmentNumber (string, requerido, único), createdAt (datetime, default now), updatedAt (datetime, on update now).</li>
+<li>Relaciones: hasMany Attendance (registros de asistencia).</li>
+</ul>
+</li>
+<li>
+<p><strong>Modelo Course</strong>:</p>
+<ul>
+<li>Campos: id (int, auto-incremental, primary key), name (string, requerido, único), description (string, opcional), teacherId (int, requerido, foreign key a Teacher), createdAt (datetime, default now), updatedAt (datetime, on update now).</li>
+<li>Relaciones: belongsTo Teacher, hasMany Attendance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Modelo Teacher</strong>:</p>
+<ul>
+<li>Campos: id (int, auto-incremental, primary key), firstName (string, requerido), lastName (string, requerido), email (string, opcional, único, formato email), createdAt (datetime, default now), updatedAt (datetime, on update now).</li>
+<li>Relaciones: hasMany Course.</li>
+</ul>
+</li>
+<li>
+<p><strong>Modelo Attendance</strong>:</p>
+<ul>
+<li>Campos: id (int, auto-incremental, primary key), studentId (int, requerido, foreign key a Student), courseId (int, requerido, foreign key a Course), date (datetime, requerido, default now), status (enum: 'PRESENT' | 'ABSENT' | 'LATE', requerido), notes (string, opcional).</li>
+<li>Relaciones: belongsTo Student, belongsTo Course.</li>
+</ul>
+</li>
+</ul>
+<p>Configurar el datasource en el schema.prisma para MySQL, con la URL de conexión (e.g., mysql://user:pass@localhost:3306/attendance_db). Usar el provider "mysql".</p>
+<p>Generar el cliente Prisma y aplicar migraciones para crear las tablas en la base de datos tras definir el esquema.</p>
+<h4 id="4-estructura-del-proyecto-en-nestjs">4. Estructura del Proyecto en NestJS</h4>
+<p>Organizar el proyecto en una estructura modular estándar de NestJS para escalabilidad:</p>
+<ul>
+<li><strong>src/</strong>: Carpeta principal de código fuente.</li>
+<li><strong>app.module.ts</strong>: Módulo raíz que importa todos los demás módulos.</li>
+<li><strong>main.ts</strong>: Punto de entrada para iniciar la app (escuchar en puerto 3000).</li>
+<li><strong>prisma/</strong>: Carpeta para el servicio Prisma global (e.g., prisma.service.ts para inyectar el cliente Prisma).</li>
+<li><strong>students/</strong>: Módulo para estudiantes (students.module.ts, students.service.ts, students.controller.ts, DTOs como create-student.dto.ts y update-student.dto.ts).</li>
+<li><strong>courses/</strong>: Similar al de estudiantes.</li>
+<li><strong>teachers/</strong>: Similar.</li>
+<li><strong>attendances/</strong>: Similar, con lógica para validar registros de asistencia.</li>
+<li><strong>prisma/schema.prisma</strong>: Esquema de la base de datos.</li>
+<li>Archivos de configuración: .env para variables de entorno (e.g., DATABASE_URL), tsconfig.json para TypeScript.</li>
+</ul>
+<p>Usar DTOs (Data Transfer Objects) para validar y tipar los cuerpos de las requests (e.g., usando class-validator con decoradores como @IsString(), @IsEnum(), @IsEmail()).</p>
+<h4 id="5-pasos-detallados-para-construir-la-api">5. Pasos Detallados para Construir la API</h4>
+<p><strong>Paso 1: Inicialización del Proyecto</strong></p>
+<ul>
+<li>Crear un nuevo proyecto NestJS usando la CLI (<code>nest new attendance-system</code>).</li>
+<li>Instalar dependencias: @nestjs/common, @nestjs/core, @prisma/client, prisma, class-validator, class-transformer.</li>
+<li>Configurar el archivo .env con la URL de conexión a MySQL (DATABASE_URL).</li>
+<li>Crear el esquema Prisma como se describió en la sección 3.</li>
+<li>Ejecutar <code>npx prisma generate</code> para generar el cliente Prisma y <code>npx prisma migrate dev</code> para aplicar migraciones y crear las tablas.</li>
+</ul>
+<p><strong>Paso 2: Configuración Global de Prisma</strong></p>
+<ul>
+<li>Crear un servicio global (PrismaService) que extienda PrismaClient y se inyecte en la app.</li>
+</ul>
+<p><strong>Paso 3: Creación de Módulos, Servicios y Controladores</strong>
+Para cada entidad (Students, Courses, Teachers, Attendances):</p>
+<ul>
+<li>Generar el <strong>módulo</strong> para cada entidad.</li>
+<li>En el <strong>servicio</strong>: Implementar métodos CRUD (findAll, findOne, create, update, remove) usando Prisma. </li>
+<li>En el <strong>controlador</strong>: Definir rutas base y endpoints con decoradores @Get, @Post, @Put, @Delete.</li>
+<li>Crear DTOs para los bodies de POST y PUT.</li>
+</ul>
+<p><strong>Paso 4: Definición Detallada de Endpoints</strong></p>
+<p>Todos los endpoints responderán en JSON, usando códigos HTTP estándar y manejando errores (e.g., HttpException para 404 si no existe un recurso).</p>
+<ul>
+<li>
+<p><strong>Estudiantes (/students)</strong>:</p>
+<ul>
+<li>GET /students: Lista todos los estudiantes con conteo de asistencias (usar _count en Prisma). Incluir filtro opcional por query param: ?enrollmentNumber=string para buscar por número de matrícula.</li>
+<li>GET /students/:id: Retorna un estudiante específico por ID, incluyendo asistencias asociadas.</li>
+<li>POST /students: Crea un nuevo estudiante. Body: {firstName: string, lastName: string, email?: string, enrollmentNumber: string}. Validar unicidad de email y enrollmentNumber.</li>
+<li>PUT /students/:id: Actualiza un estudiante. Body parcial: mismos campos que POST, opcionales.</li>
+<li>DELETE /students/:id: Elimina un estudiante, validando que no tenga asistencias asociadas.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cursos (/courses)</strong>:</p>
+<ul>
+<li>GET /courses: Lista todos los cursos con su profesor y conteo de asistencias.</li>
+<li>GET /courses/:id: Retorna un curso específico con profesor y asistencias.</li>
+<li>POST /courses: Crea un nuevo curso. Body: {name: string, description?: string, teacherId: number}. Validar que teacherId exista.</li>
+<li>PUT /courses/:id: Actualiza un curso.</li>
+<li>DELETE /courses/:id: Elimina, validando que no tenga asistencias asociadas.</li>
+</ul>
+</li>
+<li>
+<p><strong>Profesores (/teachers)</strong>:</p>
+<ul>
+<li>GET /teachers: Lista todos los profesores con conteo de cursos asignados.</li>
+<li>GET /teachers/:id: Retorna un profesor específico con sus cursos.</li>
+<li>POST /teachers: Crea un nuevo profesor. Body: {firstName: string, lastName: string, email?: string}. Validar unicidad de email.</li>
+<li>PUT /teachers/:id: Actualiza.</li>
+<li>DELETE /teachers/:id: Elimina, validando que no tenga cursos asociados.</li>
+</ul>
+</li>
+<li>
+<p><strong>Asistencias (/attendances)</strong>:</p>
+<ul>
+<li>GET /attendances: Lista todos los registros de asistencia, con filtros opcionales: ?studentId=number, ?courseId=number, ?date=YYYY-MM-DD.</li>
+<li>GET /attendances/:id: Retorna un registro específico con estudiante y curso.</li>
+<li>POST /attendances: Crea un nuevo registro. Body: {studentId: number, courseId: number, status: 'PRESENT'|'ABSENT'|'LATE', date?: datetime, notes?: string}. Validar que studentId y courseId existan, y que no exista un registro para el mismo estudiante, curso y fecha.</li>
+<li>PUT /attendances/:id: Actualiza un registro (e.g., cambiar status o notes).</li>
+<li>DELETE /attendances/:id: Elimina un registro.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Paso 5: Pruebas</strong></p>
+<ul>
+<li>
+<p>Probar endpoints con Postman o curl: Verificar cada operación CRUD, respuestas JSON, códigos HTTP y manejo de errores.</p>
+</li>
+<li>
+<p>Usar Prisma Studio para inspeccionar datos en la base de datos durante desarrollo.</p>
+</li>
+</ul>
+<h4 id="6-condiciones-para-la-evaluacion-del-plan-de-mejoramiento">6. Condiciones para la Evaluación del Plan de Mejoramiento</h4>
+<p>Para evaluar el cumplimiento de este plan de mejoramiento, se aplicarán las siguientes condiciones obligatorias. Estas aseguran que el aprendiz demuestre no solo la implementación técnica, sino también la comprensión y la capacidad de ejecución en tiempo real:</p>
+<ol>
+<li>
+<p><strong>Entrega de la API RESTful Funcionando</strong>: El aprendiz debe entregar la API RESTful completamente operativa. Esto incluye un repositorio de código fuente (En GitHub) con el proyecto completo, instrucciones para su ejecución local (README con pasos para instalar dependencias, configurar la base de datos y correr el servidor). La API debe cumplir con todos los endpoints y lógicas descritas, conectarse correctamente a MySQL vía Prisma. Demostrar la funcionalidad de la API mediante pruebas con Postman o curl. La duración estimada de esta sesión es de 30 minutos.</p>
+</li>
+<li>
+<p><strong>Realización del Proyecto desde Cero en Tiempo Real</strong>: El estudiante debe realizar todo el proyecto desde cero en una sesión en tiempo real, explicando cada paso para la creación de la API REST full. Esto incluye: inicialización del proyecto, configuración de Prisma y MySQL, creación de módulos, servicios, controladores y DTOs, definición de endpoints, implementación de lógica de negocio. La explicación debe ser clara, detallada y secuencial, demostrando comprensión de cada componente. La duración estimada de esta sesión es de 2 horas.</p>
+</li>
+<li>
+<p><strong>Presentación de una Evaluación de Conocimientos</strong>: El estudiante debe presentar una evaluación de conocimientos de todo lo visto durante el trimestre. Cubriendo temas como: conceptos básicos de NestJS (módulos, controladores, servicios), uso de Prisma (esquemas, migraciones, queries), MySQL (relaciones, enums), principios RESTful, validación de datos, manejo de errores. La duración estimada de esta evaluación es de 1 horas.</p>
+</li>
+</ol>
+<p>Estas condiciones serán evaluadas por un instructor o evaluador, y el aprendiz debe cumplir con todas para aprobar el plan de mejoramiento. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025 &copy; by JFVG
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs.sticky", "navigation.tabs", "navigation.top", "content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
