@@ -13,7 +13,7 @@
 - Inicio del período de preparación y desarrollo
 
 ### Fecha de Entrega Final
-**Martes, 3 de Septiembre de 2025 - 7:00 AM**
+**Viernes, 5 de Septiembre de 2025 - 7:00 AM**
 - Entrega obligatoria de ambos proyectos funcionando
 - Repositorios en GitHub completamente documentados
 - Preparación para demostraciones en vivo
@@ -21,7 +21,7 @@
 ---
 
 ## ⏰ Cronograma del Día de Evaluación
-**Fecha: Martes, 3 de Septiembre de 2025**
+**Fecha: Viernes, 5 de Septiembre de 2025**
 
 ### 🎯 7:00 AM - 8:00 AM: Demostración de Funcionamiento
 **Duración: 60 minutos**
